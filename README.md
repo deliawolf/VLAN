@@ -175,12 +175,12 @@ There is 3 Option to configure Inter-VLAN Routing
    L3SWITCH1# configure terminal
    L3SWITCH1(config)# ip routing
 
-   L2SWITCH1(config)# interface FastEthernet0/0
-   L2SWITCH1(config-if)# switchport trunk encapsulation dot1q
-   L2SWITCH1(config-if)# switchport mode trunk
+   L3SWITCH1(config)# interface FastEthernet0/0
+   L3SWITCH1(config-if)# switchport trunk encapsulation dot1q
+   L3SWITCH1(config-if)# switchport mode trunk
    L3SWITCH1(config-if)# switchport trunk native vlan 1
    L3SWITCH1(config-if)# switchport trunk allowed vlan add 1,10,20
-   L2SWITCH1(config-if)# exit
+   L3SWITCH1(config-if)# exit
 
    L3SWITCH1(config)# interface vlan10
    L3SWITCH1(config-if)# ip address 192.168.10.1 255.255.255.0
