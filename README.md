@@ -4,5 +4,5 @@ VLANs improve network performance by separating large broadcast domains into sma
 
 ##Creating a VLAN
 
-![Creating a VLAN](https://raw.githubusercontent.com/deliawolf/VLAN/main/1.Create%20VLAN.png)
+![Creating a VLAN]([https://raw.githubusercontent.com/deliawolf/VLAN/94c113a0eb38818c8c917ea4121af18d9fe50c1e/1.Create%20VLAN.svg)
 
