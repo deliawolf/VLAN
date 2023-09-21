@@ -79,6 +79,17 @@ There is 3 Option to configure Inter-VLAN Routing
 
    ![Option 1](https://raw.githubusercontent.com/deliawolf/VLAN/cdc1b8cfed0284ce09a7a6fe772a58f087f929b3/3.Traditional%20Inter-VLAN.svg)
    ```
+   SWITCH1(config)# interface FastEthernet0/0
+   SWITCH1(config-if)# switchport mode access
+   SWITCH1(config-if)# switchport access vlan 10
+   SWITCH1(config-if)# exit
+
+   SWITCH1(config)# interface FastEthernet0/1
+   SWITCH1(config-if)# switchport mode access
+   SWITCH1(config-if)# switchport access vlan 20
+   SWITCH1(config-if)# exit
+   ```
+   ```
    ROUTER1# configure terminal
    
    ROUTER1(config)# interface FastEthernet0/0
@@ -92,7 +103,7 @@ There is 3 Option to configure Inter-VLAN Routing
    ROUTER1(config-if)# exit
    ```
 
-2. Option 2: Router on a Stick (using single physical interface)
+3. Option 2: Router on a Stick (using single physical interface)
 
    ![Option 2](https://raw.githubusercontent.com/deliawolf/VLAN/cdc1b8cfed0284ce09a7a6fe772a58f087f929b3/4.Router%20on%20a%20stick%20VLAN.svg)
    ```
@@ -170,13 +181,6 @@ There is 3 Option to configure Inter-VLAN Routing
    L3SWITCH1(config-if)# switchport trunk native vlan 1
    L3SWITCH1(config-if)# switchport trunk allowed vlan add 1,10,20
    L2SWITCH1(config-if)# exit
-
-   L3SWITCH1(config)# interface FastEthernet0/0
-   L3SWITCH1(config-if)# switchport trunk encapsulation dot1q
-   L3SWITCH1(config-if)# switchport mode trunk
-   L3SWITCH1(config-if)# switchport trunk native vlan 1
-   L3SWITCH1(config-if)# switchport trunk allowed vlan add 1,10,20
-   L3SWITCH1(config-if)# exit
 
    L3SWITCH1(config)# interface vlan10
    L3SWITCH1(config-if)# ip address 192.168.10.1 255.255.255.0
