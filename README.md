@@ -5,8 +5,8 @@ VLANs improve network performance by separating large broadcast domains into sma
 ##Creating a VLAN
 
 ![Creating a VLAN](https://raw.githubusercontent.com/deliawolf/VLAN/4eca22d44b9729bf6948970b50cdd0af756e273a/1.Create%20VLAN.svg)
-```diff
-+ **SwitchX#** +configure terminal   
+```
+`SwitchX#`configure terminal   
 **SwitchX(config)#** vlan 2   
 **SwitchX(config-vlan)#** name Sales
 **SwitchX(config)#** vlan 20   
