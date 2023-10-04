@@ -192,6 +192,17 @@ There is 3 Option to configure Inter-VLAN Routing
    L3SWITCH1(config-if)# no shutdown
    L3SWITCH1(config-if)# exit
    ```
+## ADDITIONAL COMMANDS
+```
+Switch(config-if)# switchport voice vlan VLAN_ID
+Switch(config)# vlan vlan-id-list VLAN_IDs
+Switch(config-if)# switchport nonegotiate
+Switch(config-if)# switchport trunk native vlan 10
+```
+make default vlan tagged, normally default vlan is untagged
+```
+Switch(config-if)# vlan dot1q tag native
+```
 
 ## IF THE ROUTER OR L3SWITCH CONNECTED TO OTHER DEVICES
 
@@ -202,3 +213,22 @@ ROUTER1(config-if)# no switchport
 ROUTER1(config-if)# ip address 192.168.30.1 255.255.255.0
 ROUTER1(config-if)# ip route 0.0.0.0 0.0.0.0 192.168.30.2
 ```
+## BEST PRACTICE
+
+
+
+    1. Use Separate VLANs for Different Network Segments: Assign separate VLANs for different network segments or purposes, such as data, voice, management, guest, or IoT devices. This helps improve security, manageability, and traffic segmentation.
+
+    2. Plan VLANs in Advance: Before deploying VLANs, plan and document the VLAN assignments, including VLAN numbers, names, and their respective purposes. This helps ensure consistency and ease of management.
+
+    3. Avoid Using VLAN 1 for User Traffic: Cisco devices often have VLAN 1 as the default VLAN, which is typically used for management purposes. It is recommended to avoid using VLAN 1 for user traffic to improve security and reduce the risk of unauthorized access.
+
+    4. Native VLAN Design Considerations: When using 802.1Q trunking, consider designating a specific VLAN as the native VLAN. Ensure that the native VLAN is not used for user traffic and implement appropriate security measures, such as VLAN access control lists (VACLs), to prevent unauthorized access.
+
+    5. Implement VLAN Access Control Lists (VACLs): VACLs allow you to filter traffic within a VLAN and provide an additional layer of security. Use VACLs to control traffic flow between VLANs or to restrict certain types of traffic within a VLAN.
+
+    6. Implement VLAN Pruning: If your network has VLANs that are not required on certain trunk links, enable VLAN pruning to prevent unnecessary VLAN traffic from traversing those links. This helps optimize bandwidth utilization.
+
+    7. Implement VLAN Spanning Tree Protocol (STP) Best Practices: Configure VLAN STP parameters, such as root bridge selection, to ensure a stable and efficient spanning tree topology for each VLAN.
+
+    8. Implement VLAN Naming Conventions: Use descriptive and standardized names for VLANs to improve clarity and ease of management. Consider a naming convention that aligns with your organization's naming standards.
